@@ -1,0 +1,4 @@
+Dengan menggunakan django kita bisa membuat api kita sendiri...
+yang dimana kita menggunakan package bernamakan *json django rest framework* 
+
+++ Kita bisa menggunakan api untuk membagi data ke aplikasi lain, jadi logikanya kita bisa mengambil data dari aplikasi kita dan kita bisa menstranfer nya kedalam snapped code or embed code

@@ -1,0 +1,22 @@
+
+{% block content %}
+<style>
+    .user-grid{
+        display: grid;
+        grid-template-columns:1fr 3fr 1fr ;
+    }
+</style>
+<div class="user-grid">
+    <div>
+        <h3>{{ user.username }}</h3>
+        {% include 'base/topic-template.html' %}
+    </div>
+    <div>
+        <h3>Activity</h3>
+        {% include 'base/feed-template.html' %}
+    </div>
+    <div>
+        {% include 'base/activity-template.html' %}
+    </div>
+</div>
+{% endblock %}

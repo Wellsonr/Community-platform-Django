@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+{% if error %}
+    <h1>{{ error }}</h1>
+{% endif %}
+
+<style>
+    .room-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+</style>
+
+<div class="room-wrapper"> 
+    <div class="comment-wrapper">
+        <h1> {{ room.name }}</h1>
+        <h3>Conversations</h3>
+        <hr>
+        {% for message in room_message %}
+            {% if request.user == message.user %}
+            <a href="{% url 'message_delete' message.id %}">Delete</a>
+            {% endif %}
+            @{{ message.user }} {{ message.created|timesince }} ago
+            <div>
+                {{ message.body }}
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+
+    <div class="user-participant">
+        <h3>Participant</h3>
+        <hr>
+        {% for user in participant %}
+            <div>
+                @{{ user.username }}
+            </div>
+        {% endfor %}
+    </div>
+
+
+        <form action="" method="POST">
+
+            <input type="text" name="body" placeholder="Enter your message here..">
+        </form>
+    {% endif %}
+
+
+</div>
+{% endblock %}
